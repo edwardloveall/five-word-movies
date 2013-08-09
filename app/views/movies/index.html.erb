@@ -1,0 +1,11 @@
+<%= link_to 'New Movie', new_movie_path %>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <%= link_to movie.five_words, movie %>
+      <%= link_to 'Edit', edit_movie_path(movie) %>
+      <%= link_to 'Delete', movie, method: :delete, confirm: "Delete it? Really?" %>
+    </li>
+  <% end %>
+</ul>
