@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
   def update
     @movie = find_movie
     if @movie.update_attributes(params[:movie])
-      redirect_to edit_movie_path(@movie)
+      redirect_to movies_path
     else
       render :edit
     end
