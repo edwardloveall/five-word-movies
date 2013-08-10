@@ -1,4 +1,6 @@
 FiveWordMovies::Application.routes.draw do
   resources :movies
-  root to: 'movies#index'
+  get '/welcome', to: 'static#welcome'
+
+  root to: 'static#welcome'
 end
