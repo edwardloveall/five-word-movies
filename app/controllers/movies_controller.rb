@@ -1,10 +1,16 @@
 class MoviesController < ApplicationController
+  before_filter :authenticate, except: :show
+
   def index
     @movies = Movie.all
   end
 
   def show
-    @movie = find_movie
+    if params[:id] == 'random'
+      redirect_to Movie.all.sample
+    else
+      @movie = find_movie
+    end
   end
 
   def new
@@ -44,5 +50,17 @@ class MoviesController < ApplicationController
 
   def find_movie
     Movie.find(params[:id])
+  end
+
+  def authenticate
+    begin
+      credentials = YAML.load_file("#{Rails.root}/config/credentials.yml")['basic_auth']
+    rescue
+      credentials = { 'user' => ENV['user'], 'pass' => ENV['pass'] }
+    end
+
+    authenticate_or_request_with_http_basic do |user, pass|
+      user == credentials['user'] && pass == credentials['pass']
+    end
   end
 end
