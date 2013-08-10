@@ -1,0 +1,18 @@
+// Font familes
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+$base-font: Helvetica, sans-serif;
+$domus-titling: 'jaf-domus-titling-web', $base-font;
+$montserrat: 'Montserrat', $base-font;
+$header-font: $montserrat;
+
+// Font size
+
+$font-size-base: 42px;
+$font-size-small: golden-ratio($font-size-base, -1);
+$font-size-large: golden-ratio($font-size-base, 1);
+
+// Colors
+$purple: #8959A8;
+$main-color: $purple;
+$white: lighten($main-color, 50%);

@@ -1,3 +1,6 @@
-<%= @movie.five_words %>
-<%= link_to 'Show Answer' %>
-<%= @movie.title %>
+<h1 class="five-words"><%= @movie.five_words %></h1>
+<h2 class="hidden answer"><%= @movie.title %></h2>
+<div class="actions">
+  <%= link_to 'Show Answer', @movie, class: 'reveal show' %>
+  <%= link_to 'Next Movie', @next, class: 'random' %>
+</div>

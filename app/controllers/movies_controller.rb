@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_filter :authenticate, except: :show
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order('created_at')
   end
 
   def show
@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
       redirect_to Movie.all.sample
     else
       @movie = find_movie
+      @next = @movie.next_movie
     end
   end
 

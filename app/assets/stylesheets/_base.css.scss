@@ -1,0 +1,27 @@
+html, body {
+  font-size: 100%;
+}
+
+body {
+  background: $main-color;
+}
+
+div.content {
+  padding: 5% 20%;
+}
+
+h1, h2 {
+  font-family: $header-font;
+  color: $white;
+  margin-bottom: 1em;
+}
+
+h1.five-words {
+  font-size: $font-size-base;
+  text-align: center;
+}
+
+h2.answer {
+  font-size: $font-size-base;
+  text-align: center;
+}
