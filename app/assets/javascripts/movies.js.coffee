@@ -1,5 +1,6 @@
 $ ->
   $('a.reveal').click( (e) ->
     e.preventDefault()
-    $('h2.hidden').css('opacity', 1)
+    $('h2.hidden').removeClass('hidden')
+    $('h1.five-words').addClass('answered')
   )

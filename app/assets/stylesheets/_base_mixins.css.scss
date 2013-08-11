@@ -1,24 +1,23 @@
 @mixin button($bg: white) {
+  $color: lighten($bg, 50%);
+
   @if (lightness($bg) > 70%) {
-    color: darken($bg, 40%);
-    @include linear-gradient($bg, darken($bg, 7%));
-  } @else {
-    color: lighten($bg, 50%);
-    @include linear-gradient(lighten($bg, 8%), $bg);
+    $color: darken($bg, 40%);
   }
 
-  box-shadow: inset 0 0 1px 1px lighten($bg, 10%),
-              0 .1em .1em rgba(0,0,0,0.3);
+  background-color: $bg;
   border: 1px solid darken($bg, 50%);
   border-radius: 4px;
+  color: $color;
   display: inline-block;
   font-family: $header-font;
+  margin: 0;
   padding: .4em .8em;
   position: relative;
   text-decoration: none;
 
   &:active {
-    box-shadow: inset 0 0 1px 1px lighten($bg, 10%);
-    top: 2px;
+    background-color: $color;
+    color: $bg;
   }
 }

@@ -1,27 +1,15 @@
-html, body {
-  font-size: 100%;
-}
-
 body {
   background: $main-color;
+  font-family: $base-family;
+  font-size: $font-size-small;
 }
 
 div.content {
-  padding: 5% 20%;
+  margin: $font-size-base auto 0;
+  max-width: 50em;
 }
 
 h1, h2 {
-  font-family: $header-font;
   color: $white;
-  margin-bottom: 1em;
-}
-
-h1.five-words {
-  font-size: $font-size-base;
-  text-align: center;
-}
-
-h2.answer {
-  font-size: $font-size-base;
-  text-align: center;
+  font-family: $header-font;
 }

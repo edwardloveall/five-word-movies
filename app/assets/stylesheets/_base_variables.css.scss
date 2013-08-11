@@ -4,11 +4,12 @@
 $base-font: Helvetica, sans-serif;
 $domus-titling: 'jaf-domus-titling-web', $base-font;
 $montserrat: 'Montserrat', $base-font;
+$base-family: $montserrat;
 $header-font: $montserrat;
 
 // Font size
 
-$font-size-base: 42px;
+$font-size-base: 36px;
 $font-size-small: golden-ratio($font-size-base, -1);
 $font-size-large: golden-ratio($font-size-base, 1);
 

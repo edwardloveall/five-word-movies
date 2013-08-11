@@ -1,4 +1,28 @@
-h2 {
+/*----------------------
+
+    Show
+
+-----------------------*/
+
+h1, h2 {
+  line-height: 1.3em;
+}
+
+h1.five-words {
+  font-size: $font-size-base;
+  margin: 2em 0 1em;
+  text-align: center;
+  @include transition(.5s);
+
+  &.answered {
+    opacity: 0.4;
+  }
+}
+
+h2.answer {
+  font-size: $font-size-small;
+  margin: 3em 0 1em;
+  text-align: center;
   @include transition(.5s);
 
   &.hidden {
@@ -8,9 +32,87 @@ h2 {
 
 div.actions {
   text-align: center;
+  margin-top: $font-size-base * 2;
 
   a.reveal, a.random {
     @include button($white);
     font-size: $font-size-small;
+  }
+}
+
+/*----------------------
+
+    Index
+
+-----------------------*/
+
+a.new {
+  @include button($white);
+}
+
+ul {
+  margin-top: 1em;
+
+  li {
+    line-height: 2em;
+
+    a {
+      color: $white;
+      display: inline-block;
+      text-decoration: none;
+
+      &.five-words {
+        width: 30em;
+      }
+
+      &.edit {
+        width: 3em;
+      }
+    }
+  }
+}
+
+
+/*----------------------
+
+    Forms
+
+-----------------------*/
+
+form {
+  label {
+    color: $white;
+    display: inline-block;
+    font-size: $font-size-base;
+    margin-bottom: .5em;
+    padding-right: .5em;
+    text-align: right;
+    width: 20%;
+    vertical-align: middle;
+
+    @include box-sizing(border-box);
+  }
+
+  input[type=text] {
+    border: 0;
+    border-radius: 4px;
+    color: $purple;
+    display: inline-block;
+    font-size: $font-size-base;
+    margin-bottom: 1em;
+    padding: .4em;
+    width: 80%;
+
+    @include box-sizing(border-box);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type=submit] {
+    @include button($white);
+    font-size: $font-size-base;
+    margin-left: 20%;
   }
 }
