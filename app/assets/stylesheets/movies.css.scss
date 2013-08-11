@@ -86,7 +86,7 @@ form {
     margin-bottom: .5em;
     padding-right: .5em;
     text-align: right;
-    width: 20%;
+    width: 25%;
     vertical-align: middle;
 
     @include box-sizing(border-box);
@@ -100,7 +100,7 @@ form {
     font-size: $font-size-base;
     margin-bottom: 1em;
     padding: .4em;
-    width: 80%;
+    width: 75%;
 
     @include box-sizing(border-box);
 
@@ -112,6 +112,6 @@ form {
   input[type=submit] {
     @include button($white);
     font-size: $font-size-base;
-    margin-left: 20%;
+    margin-left: 25%;
   }
 }
