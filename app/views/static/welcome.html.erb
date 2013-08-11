@@ -1,5 +1,7 @@
-<h1>Five Word Movies</h1>
+<h1 class="game-title">Five Word Movies</h1>
 
-<p>Five Word Movies is a game. The object is to guess the movie given a five word description of the plot.</p>
+<p class="description">Five Word Movies is a movie trivia game. The object is to guess the movie given a five word description of the plot. It was originally created by <a href="http://www.juliamurphy.net/">Julie Murphy</a> and expanded upon by the folks at <a href="http://intrepid.io">Intrepid</a>.</p>
 
-<%= link_to 'Start', @first_movie %>
+<div class="actions">
+  <%= link_to 'Start', @first_movie, class: 'start' %>
+</div>

@@ -1,15 +1,26 @@
 body {
   background: $main-color;
+  color: $white;
   font-family: $base-family;
   font-size: $font-size-small;
 }
 
+a {
+  color: darken($white, 20%);
+  text-decoration: none;
+
+  @include transition(.2s);
+
+  &:hover {
+    color: $white;
+  }
+}
+
 div.content {
   margin: $font-size-base auto 0;
-  max-width: 50em;
+  max-width: 40em;
 }
 
 h1, h2 {
-  color: $white;
   font-family: $header-font;
 }
