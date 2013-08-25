@@ -30,6 +30,24 @@ h2.answer {
   }
 }
 
+input#guess {
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 2px solid $white;
+  color: $white;
+  margin-bottom: 0;
+  text-align: center;
+  width: 100%;
+
+  @include placeholder {
+    color: rgba($white, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
 div.actions {
   text-align: center;
   margin-top: $font-size-base * 2;
@@ -37,6 +55,24 @@ div.actions {
   a.reveal, a.random {
     @include button($white);
     font-size: $font-size-small;
+  }
+}
+
+ul.results {
+  li {
+    background-position-x: -1em;
+    cursor: pointer;
+    @include transition(padding-left .2s, background-position-x .2s);
+
+    &:hover,
+    &:focus,
+    &.selected {
+      padding-left: 1em;
+    }
+
+    &.selected {
+      background: transparent url(dot.png) no-repeat .35em center;
+    }
   }
 }
 
@@ -68,50 +104,5 @@ ul {
         width: 3em;
       }
     }
-  }
-}
-
-
-/*----------------------
-
-    Forms
-
------------------------*/
-
-form {
-  label {
-    color: $white;
-    display: inline-block;
-    font-size: $font-size-base;
-    margin-bottom: .5em;
-    padding-right: .5em;
-    text-align: right;
-    width: 25%;
-    vertical-align: middle;
-
-    @include box-sizing(border-box);
-  }
-
-  input[type=text] {
-    border: 0;
-    border-radius: 4px;
-    color: $purple;
-    display: inline-block;
-    font-size: $font-size-base;
-    margin-bottom: 1em;
-    padding: .4em;
-    width: 75%;
-
-    @include box-sizing(border-box);
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  input[type=submit] {
-    @include button($white);
-    font-size: $font-size-base;
-    margin-left: 25%;
   }
 }
