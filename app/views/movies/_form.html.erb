@@ -1,5 +1,7 @@
 <%= simple_form_for(@movie) do |form| %>
   <%= form.input :five_words, placeholder: 'Urban Horse Learns About Sex' %>
-  <%= form.input :title, placeholder: 'Sex and the City' %>
+  <%= form.input :title, placeholder: 'Sex and the City', class: 'entry' %>
+  <%= form.input :rotten_id, as: :hidden %>
+  <ul class="results backend"></ul>
   <%= form.button :submit %>
 <% end %>

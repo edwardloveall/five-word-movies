@@ -1,11 +1,10 @@
 <h1 class="five-words"><%= @movie.five_words %></h1>
-<!-- <h2 class="hidden answer"><%= @movie.title %></h2> -->
-<!-- <div class="actions">
-  <%= link_to 'Show Answer', @movie, class: 'reveal show' %>
-  <%= link_to 'Next Movie', @next, class: 'random' %>
-</div> -->
-<%= form_tag @movie do |form| %>
-  <%= text_field_tag 'guess', nil, placeholder: 'Take a guess' %>
+<%= form_for @movie do |form| %>
+  <div class="cta">
+    <%= text_field_tag 'guess', nil, placeholder: 'Take a guess' %>
+    <%= link_to "Next Movie", @next, class: 'next' %>
+  </div>
+  <%= hidden_field_tag nil, @movie.rotten_id, id: 'movie_rotten_id' %>
 <% end %>
 <ul class="results">
 </ul>

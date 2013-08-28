@@ -9,12 +9,13 @@ $(document).ready(function() {
     $(this).toggleClass('selected');
   });
 
-  var guessField = $('input#guess');
   var wait = null;
 
-  guessField.on('input', function(e) {
+  $('input#guess, input#movie_title').on('input', function(e) {
+    console.log(e);
+
     clearTimeout(wait);
-    var guess = guessField.val();
+    var guess = $(this).val();
 
     if (guess.length <= 0) {
       clear_movies();
@@ -41,7 +42,11 @@ $(document).ready(function() {
     for (i = 0; i < data.movies.length; i++) {
       movie = data.movies[i];
       $('ul.results').append("<li>" + movie.title + " (" + movie.year + ")</li>");
-      $('ul.results li:last-child').data('id', movie.id).click(select_movie);
+      $('ul.results li:last-child').data('id', movie.id).data('title', movie.title).click(select_movie);
+
+      if($('input#movie_rotten_id').val() == movie.id) {
+        $('ul.results li:last-child').addClass('correct')
+      }
     }
   };
 
@@ -52,9 +57,22 @@ $(document).ready(function() {
   select_movie = function() {
     $('ul.results li').not(this).removeClass('selected');
     $(this).toggleClass('selected');
+
+    if(window.location.toString().match(/(edit|new)/)) {
+      $('input#movie_rotten_id').val($(this).data('id'))
+      $('input#movie_title').val($(this).data('title'))
+    }
+
+    if ($(this).hasClass('correct')) {
+      $('div.cta').addClass('done');
+    }
   }
 
   $(window).keypress(function(e) {
     console.log(e.keycode);
   })
+
+  set_movie = function(id) {
+    $('input#movie_rotten_id').val(id);
+  }
 });

@@ -30,50 +30,65 @@ h2.answer {
   }
 }
 
-input#guess {
-  background-color: transparent;
-  border-radius: 0;
-  border-bottom: 2px solid $white;
-  color: $white;
-  margin-bottom: 0;
+div.cta {
+  height: 77px;
+  overflow: hidden;
   text-align: center;
-  width: 100%;
 
-  @include placeholder {
-    color: rgba($white, 0.5);
+  &.done {
+    input#guess, a.next {
+      top: -77px;
+    }
   }
 
-  &:focus {
-    outline: none;
+  input#guess {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px solid $white;
+    color: $white;
+    margin-bottom: .5em;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    @include placeholder {
+      color: rgba($white, 0.5);
+    }
+    @include transition(top .2s);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+a.reveal, a.next {
+  @include button($white);
+  font-size: $font-size-small;
+}
+
+ul.results {
+  li {
+    background: transparent url(no.png) no-repeat -1.5em center;
+    cursor: pointer;
+    @include transition(padding-left .2s ease-in-out, background-position-x .2s ease-in-out);
+
+    &.correct { background-image: url(yes.png); }
+
+    &:hover,
+    &:focus,
+    &.selected {
+      padding-left: 1.5em;
+    }
+
+    &.selected {
+      background-position-x: left;
+    }
   }
 }
 
 div.actions {
   text-align: center;
-  margin-top: $font-size-base * 2;
-
-  a.reveal, a.random {
-    @include button($white);
-    font-size: $font-size-small;
-  }
-}
-
-ul.results {
-  li {
-    background-position-x: -1em;
-    cursor: pointer;
-    @include transition(padding-left .2s, background-position-x .2s);
-
-    &:hover,
-    &:focus,
-    &.selected {
-      padding-left: 1em;
-    }
-
-    &.selected {
-      background: transparent url(dot.png) no-repeat .35em center;
-    }
-  }
 }
 
 /*----------------------
@@ -87,6 +102,19 @@ a.new {
 }
 
 ul {
+  &.backend {
+    margin-left: 25%;
+    margin-bottom: 1em;
+
+    li {
+      background-image: url(dot.png);
+
+      &.selected {
+        background-position-x: .5em;
+      }
+    }
+  }
+
   margin-top: 1em;
 
   li {
