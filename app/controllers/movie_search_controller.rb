@@ -18,7 +18,7 @@ class MovieSearchController < ApplicationController
     begin
       api = YAML.load_file("#{Rails.root}/config/credentials.yml")['movie_api']
     rescue
-      api = { 'api_key' => ENV['user'] }
+      api = { 'api_key' => ENV['rotten_api_key'] }
     end
 
     "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=#{api['key']}&q="
